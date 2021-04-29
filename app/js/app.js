@@ -9,6 +9,8 @@
 import { Swiper, Parallax, Mousewheel, Controller, Pagination, Scrollbar, Navigation } from 'swiper'
 Swiper.use([ Parallax, Mousewheel, Controller, Pagination, Scrollbar, Navigation ])
 
+import { gsap, Power2 } from 'gsap'
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	const swiperIMG = new Swiper('.slider-img', {
@@ -39,5 +41,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	swiperIMG.controller.control = swiperText
 	swiperText.controller.control = swiperIMG
+
+	let gear = document.querySelector('.slider-gear')
+
+	swiperText.on('slideNextTransitionStart', function() {
+		gsap.to(gear, 2.8, {
+			rotation: '+=40',
+			ease: Power2.easeOut
+		})
+	})
+
+	swiperText.on('slidePrevTransitionStart', function() {
+		gsap.to(gear, 2.8, {
+			rotation: '-=40',
+			ease: Power2.easeOut
+		})
+	})
 
 })
