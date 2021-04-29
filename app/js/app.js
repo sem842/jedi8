@@ -11,7 +11,20 @@ Swiper.use([ Parallax, Mousewheel, Controller, Pagination, Scrollbar, Navigation
 
 import { gsap, Power2 } from 'gsap'
 
+import Micromodal from 'micromodal'
+
 document.addEventListener('DOMContentLoaded', () => {
+
+//Modal
+
+	Micromodal.init({
+		openTrigger: 'data-micromodal-open',
+		closeTrigger: 'data-micromodal-close',
+		disableFocus: true,
+		disableScroll: true,
+		awaitOpenAnimation: true,
+		awaitCloseAnimation: true
+	})
 
 //Swiper
 
