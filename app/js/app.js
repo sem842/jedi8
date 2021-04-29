@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			el: '.slider-pagination-count .total',
 			type: 'custom',
 			renderCustom: function(swiper, current, total) {
-				return `0${total}`
+				let totalRes = total >= 10 ? total : `0${total}`
+				return totalRes
 			}
 		}
 	})
@@ -75,7 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
 			pagcur = document.querySelector('.slider-pagination-current__num')
 
 	swiperText.on('slideChange', function() {
-		let ind = swiperText.realIndex + 1
+		let ind 		= swiperText.realIndex + 1,
+				indRes	=	ind >= 10 ? ind : `0${ind}`
 		gsap.to(curnum, .2, {
 			force3D: true,
 			y: -10,
@@ -86,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					force3D: true,
 					y: 10
 				})
-				curnum.innerHTML = `0${ind}`
-				pagcur.innerHTML = `0${ind}`
+				curnum.innerHTML = indRes
+				pagcur.innerHTML = indRes
 			}
 		})
 		
