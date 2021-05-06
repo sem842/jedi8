@@ -142,8 +142,21 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	})
 
+	for(let i = 0; i < links.length; i++) {
+		links[i].addEventListener('mouseover', () => {
+			cursor.classList.add('active')
+		})
+		links[i].addEventListener('mouseout', () => {
+			cursor.classList.remove('active')
+		})
+	}
+
 	body.addEventListener('mousemove', e => {
 		mouseCoords(e)
+		cursor.classList.remove('hidden')
+	})
+	body.addEventListener('mouseout', e => {
+		cursor.classList.add('hidden')
 	})
 
 })
