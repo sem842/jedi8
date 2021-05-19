@@ -1,1 +1,4 @@
 node_modules
+dist
+app/**/*.min.*
+package-lock.json
